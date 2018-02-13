@@ -1,0 +1,399 @@
+@prefix : <http://kopytov.rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://kopytov.rdf> .
+
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://kopytov.rdf#causes
+:causes rdf:type owl:ObjectProperty .
+
+
+###  http://kopytov.rdf#contains
+:contains rdf:type owl:ObjectProperty .
+
+
+###  http://kopytov.rdf#for
+:for rdf:type owl:ObjectProperty .
+
+
+###  http://kopytov.rdf#uses
+:uses rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://kopytov.rdf#version
+:version rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://kopytov.rdf#Classificator
+:Classificator rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Data
+:Data rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Error
+:Error rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Factor
+:Factor rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Library
+:Library rdf:type owl:Class ;
+         rdfs:subClassOf :Tools .
+
+
+###  http://kopytov.rdf#MachineLearning
+:MachineLearning rdf:type owl:Class ;
+                 rdfs:subClassOf :Science .
+
+
+###  http://kopytov.rdf#Model
+:Model rdf:type owl:Class ;
+       rdfs:subClassOf :Tools .
+
+
+###  http://kopytov.rdf#Object
+:Object rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Program
+:Program rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#ProgramLanguage
+:ProgramLanguage rdf:type owl:Class ;
+                 rdfs:subClassOf :Tools .
+
+
+###  http://kopytov.rdf#Resource
+:Resource rdf:type owl:Class ;
+          rdfs:subClassOf :Tools .
+
+
+###  http://kopytov.rdf#Result
+:Result rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Science
+:Science rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Stage
+:Stage rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Task
+:Task rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Tools
+:Tools rdf:type owl:Class .
+
+
+###  http://kopytov.rdf#Utility
+:Utility rdf:type owl:Class ;
+         rdfs:subClassOf :Tools .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://kopytov.rdf#addMLtoApp
+:addMLtoApp rdf:type owl:NamedIndividual ,
+                     :Stage .
+
+
+###  http://kopytov.rdf#ageRecognition
+:ageRecognition rdf:type owl:NamedIndividual ,
+                         :Task ;
+                :for :goodResult .
+
+
+###  http://kopytov.rdf#ageRecognitionError
+:ageRecognitionError rdf:type owl:NamedIndividual ,
+                              :Error .
+
+
+###  http://kopytov.rdf#algorithm
+:algorithm rdf:type owl:NamedIndividual ,
+                    :Program ;
+           :contains :addMLtoApp ,
+                     :dataPreparing ,
+                     :dataSearching ,
+                     :modelSelecting ,
+                     :pythonToCoreML ,
+                     :training ,
+                     :writeMobileApp .
+
+
+###  http://kopytov.rdf#awesomeCoreML
+:awesomeCoreML rdf:type owl:NamedIndividual ,
+                        :Resource .
+
+
+###  http://kopytov.rdf#awesomeSwift
+:awesomeSwift rdf:type owl:NamedIndividual ,
+                       :Resource .
+
+
+###  http://kopytov.rdf#badResult
+:badResult rdf:type owl:NamedIndividual ,
+                    :Result .
+
+
+###  http://kopytov.rdf#caffe
+:caffe rdf:type owl:NamedIndividual ,
+                :Library ;
+       :uses :decisionTree ,
+             :faceDetection .
+
+
+###  http://kopytov.rdf#classification
+:classification rdf:type owl:NamedIndividual ,
+                         :MachineLearning ;
+                :contains :dataPreparing ,
+                          :dataSearching ,
+                          :modelSelecting ,
+                          :training .
+
+
+###  http://kopytov.rdf#coreML
+:coreML rdf:type owl:NamedIndividual ,
+                 :Utility ;
+        :for :pythonToCoreML ;
+        :uses :python .
+
+
+###  http://kopytov.rdf#dataPreparing
+:dataPreparing rdf:type owl:NamedIndividual ,
+                        :Stage ;
+               :for :classification .
+
+
+###  http://kopytov.rdf#dataSearching
+:dataSearching rdf:type owl:NamedIndividual ,
+                        :Stage ;
+               :for :classification ,
+                    :testData ,
+                    :trainingData .
+
+
+###  http://kopytov.rdf#decisionTree
+:decisionTree rdf:type owl:NamedIndividual ,
+                       :Classificator .
+
+
+###  http://kopytov.rdf#emotionRecognition
+:emotionRecognition rdf:type owl:NamedIndividual ,
+                             :Task ;
+                    :for :goodResult .
+
+
+###  http://kopytov.rdf#emotionRecognitionError
+:emotionRecognitionError rdf:type owl:NamedIndividual ,
+                                  :Error .
+
+
+###  http://kopytov.rdf#face
+:face rdf:type owl:NamedIndividual ,
+               :Data .
+
+
+###  http://kopytov.rdf#faceDetection
+:faceDetection rdf:type owl:NamedIndividual ,
+                        :Model .
+
+
+###  http://kopytov.rdf#genderRecognition
+:genderRecognition rdf:type owl:NamedIndividual ,
+                            :Task ;
+                   :for :goodResult .
+
+
+###  http://kopytov.rdf#genderRecognitionError
+:genderRecognitionError rdf:type owl:NamedIndividual ,
+                                 :Error .
+
+
+###  http://kopytov.rdf#goodResult
+:goodResult rdf:type owl:NamedIndividual ,
+                     :Result .
+
+
+###  http://kopytov.rdf#human
+:human rdf:type owl:NamedIndividual ,
+                :Object ;
+       :contains :face ,
+                 :humanData ;
+       :for :dataPreparing ,
+            :dataSearching ,
+            :modelSelecting .
+
+
+###  http://kopytov.rdf#humanData
+:humanData rdf:type owl:NamedIndividual ,
+                    :Data .
+
+
+###  http://kopytov.rdf#libSVM
+:libSVM rdf:type owl:NamedIndividual ,
+                 :Library ;
+        :uses :svm .
+
+
+###  http://kopytov.rdf#light
+:light rdf:type owl:NamedIndividual ,
+                :Factor ;
+       :causes :ageRecognitionError ,
+               :emotionRecognitionError ,
+               :genderRecognitionError .
+
+
+###  http://kopytov.rdf#logisticalRegression
+:logisticalRegression rdf:type owl:NamedIndividual ,
+                               :Classificator .
+
+
+###  http://kopytov.rdf#modelSelecting
+:modelSelecting rdf:type owl:NamedIndividual ,
+                         :Stage ;
+                :for :classification .
+
+
+###  http://kopytov.rdf#objectiveC
+:objectiveC rdf:type owl:NamedIndividual ,
+                     :ProgramLanguage .
+
+
+###  http://kopytov.rdf#python
+:python rdf:type owl:NamedIndividual ,
+                 :ProgramLanguage ;
+        :for :training ;
+        :uses :caffe ,
+              :libSVM ,
+              :scklearn ,
+              :torch7 ;
+        :version "3.6"^^xsd:string .
+
+
+###  http://kopytov.rdf#pythonToCoreML
+:pythonToCoreML rdf:type owl:NamedIndividual ,
+                         :Stage .
+
+
+###  http://kopytov.rdf#qualityOfCompression
+:qualityOfCompression rdf:type owl:NamedIndividual ,
+                               :Factor ;
+                      :causes :ageRecognitionError ,
+                              :emotionRecognitionError ,
+                              :genderRecognitionError .
+
+
+###  http://kopytov.rdf#qualityOfPhoto
+:qualityOfPhoto rdf:type owl:NamedIndividual ,
+                         :Factor ;
+                :causes :ageRecognitionError ,
+                        :emotionRecognitionError ,
+                        :genderRecognitionError .
+
+
+###  http://kopytov.rdf#randomTreeForest
+:randomTreeForest rdf:type owl:NamedIndividual ,
+                           :Classificator ;
+                  :for :classification .
+
+
+###  http://kopytov.rdf#realData
+:realData rdf:type owl:NamedIndividual ,
+                   :Data .
+
+
+###  http://kopytov.rdf#scklearn
+:scklearn rdf:type owl:NamedIndividual ,
+                   :Library ;
+          :uses :logisticalRegression .
+
+
+###  http://kopytov.rdf#svm
+:svm rdf:type owl:NamedIndividual ,
+              :Classificator .
+
+
+###  http://kopytov.rdf#swift
+:swift rdf:type owl:NamedIndividual ,
+                :ProgramLanguage .
+
+
+###  http://kopytov.rdf#tensorFlowModels
+:tensorFlowModels rdf:type owl:NamedIndividual ,
+                           :Model .
+
+
+###  http://kopytov.rdf#testData
+:testData rdf:type owl:NamedIndividual ,
+                   :Data ;
+          :for :training .
+
+
+###  http://kopytov.rdf#torch7
+:torch7 rdf:type owl:NamedIndividual ,
+                 :Library ;
+        :uses :randomTreeForest .
+
+
+###  http://kopytov.rdf#training
+:training rdf:type owl:NamedIndividual ,
+                   :Stage ;
+          :for :goodResult ,
+               :randomTreeForest .
+
+
+###  http://kopytov.rdf#trainingData
+:trainingData rdf:type owl:NamedIndividual ,
+                       :Data ;
+              :for :training .
+
+
+###  http://kopytov.rdf#weather
+:weather rdf:type owl:NamedIndividual ,
+                  :Factor ;
+         :causes :ageRecognitionError ,
+                 :emotionRecognitionError ,
+                 :genderRecognitionError .
+
+
+###  http://kopytov.rdf#writeMobileApp
+:writeMobileApp rdf:type owl:NamedIndividual ,
+                         :Stage .
+
+
+###  http://kopytov.rdf#xcode
+:xcode rdf:type owl:NamedIndividual ,
+                :Utility ;
+       :for :addMLtoApp ,
+            :writeMobileApp ;
+       :uses :objectiveC ,
+             :swift .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
